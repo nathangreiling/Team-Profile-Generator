@@ -168,6 +168,5 @@ const teamMembers = () => {
 }
 
 
-// ])
-// }
+
  teamManager().then(teamMembers);
