@@ -74,18 +74,26 @@ const teamMembers = () => {
         {
             type: "confirm",
             name: "addEmployees",
-            message: "Add more employees to your team?"
+            message: "Add more employees to your team?",
+            
+            
+            
         },
     ]).then(function(response) {
-        if (response.addEmployees == false) {
+        if (response.addEmployees === false ) { 
+            
             return console.log("Creating your team!");
-        } else if (response.addEmployees == true) {
-            inquirer.prompt([
+            
+        } else if (response.addEmployees === true) { addMembers()} })}
+
+const addMembers = () => { 
+        inquirer.prompt([
                 {
                     type: "list",
                     name: "roles",
                     message: "What is the employee's role?",
                     choices: ["Engineer", "Intern"],
+                    
                 },
                 {
                     type: "input",
@@ -157,16 +165,16 @@ const teamMembers = () => {
                 }
             ])
         }
-    }).then(function() {
-        if (1 === 1) {
-            teamMembers();
-        } else {
-            console.log("Creating your team!");
-            return;
-        }
-    })
-}
+//     }).then(function() {
+//         if (1 === 1) {
+//             teamMembers();
+//         } else {
+//             console.log("Creating your team!");
+//             return;
+//         }
+//     })
+// }
 
 
 
- teamManager().then(teamMembers);
+ teamManager().then(teamMembers)
