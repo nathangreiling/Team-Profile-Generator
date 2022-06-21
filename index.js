@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs")
 const Manager = require("./lib/Manager");
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const { validate } = require("@babel/types");
 
 
@@ -65,6 +67,7 @@ const teamManager = () => {
 
          
         console.log(pmanager); 
+        teamMembers();
     })
 };
 
@@ -163,18 +166,22 @@ const addMembers = () => {
                     }
 
                 }
-            ])
-        }
-//     }).then(function() {
-//         if (1 === 1) {
-//             teamMembers();
-//         } else {
-//             console.log("Creating your team!");
-//             return;
-//         }
-//     })
-// }
+             ]).then(teamMembers) 
+             //.then(internData => {
+            //     const  { name, id, email, school } = internData; 
+            //     const pintern = new Intern(name, id, email, school);
+                
+                 
+            //     console.log(pintern); 
+            // }).then(engineerData => {
+            //     const  { name, id, email, github } = engineerData;
+            //     const pengineer = new Engineer(name, id, email, github)
+
+            //     console.log(pengineer)
+        //     })
+         }
 
 
 
- teamManager().then(teamMembers)
+
+ teamManager()
